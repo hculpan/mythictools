@@ -7,7 +7,7 @@
 .DS_Store
 .env
 mythictools
-deploymt.zip
+*.zip
 
 # Test binary, built with `go test -c`
 *.test

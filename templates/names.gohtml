@@ -1,0 +1,40 @@
+{{ template "header.gohtml" . }}
+
+<div class="container d-flex justify-content-center">
+    <h4>Anglo-Saxon Name Generator<h4>
+</div>
+
+<div class="container d-flex justify-content-center mb-4">
+    <a href="/names" class="btn btn-primary">Generate New Lists</a>
+</div>
+
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-group">
+                <li class="list-group-item"><h5>Males</h5></li>
+
+                {{ range .malenames }}
+
+                <li class="list-group-item">{{ . }}</li>
+
+                {{ end }}
+            </ul>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <ul class="list-group">
+                <li class="list-group-item"><h5>Females</h5></li>
+
+                {{ range .femalenames }}
+
+                <li class="list-group-item">{{ . }}</li>
+
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{{ template "footer.gohtml" . }}

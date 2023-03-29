@@ -1,11 +1,19 @@
 {{ template "header.gohtml" . }}
 
 <div class="container d-flex justify-content-center">
-    <h4>Anglo-Saxon Name Generator<h4>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle mb-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ .typename }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/names?type=saxon">Saxon names</a></li>
+            <li><a class="dropdown-item" href="/names?type=celtic">Celtic names</a></li>
+        </ul>
+    </div>
 </div>
 
 <div class="container d-flex justify-content-center mb-4">
-    <a href="/names" class="btn btn-primary">Generate New Lists</a>
+    <a href="/names?type={{ .type }}" class="btn btn-primary">Generate New Lists</a>
 </div>
 
 <div class="container d-flex justify-content-center">

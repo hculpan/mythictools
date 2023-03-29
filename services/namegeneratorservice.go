@@ -10,8 +10,14 @@ import (
 var SaxonMaleNamesFilename string = "./data/saxon-male-names.txt"
 var SaxonFemaleNamesFilename string = "./data/saxon-female-names.txt"
 
+var CelticMaleNamesFilename string = "./data/celtic-male-names.txt"
+var CelticFemaleNamesFilename string = "./data/celtic-female-names.txt"
+
 var SaxonMaleNames []string = []string{}
 var SaxonFemaleNames []string = []string{}
+
+var CelticMaleNames []string = []string{}
+var CelticFemaleNames []string = []string{}
 
 var rnd *rand.Rand
 
@@ -31,6 +37,20 @@ func InitNameGeneratorService() error {
 	}
 
 	SaxonFemaleNames = names
+
+	names, err = readFileIntoArray(CelticMaleNamesFilename)
+	if err != nil {
+		return err
+	}
+
+	CelticMaleNames = names
+
+	names, err = readFileIntoArray(CelticFemaleNamesFilename)
+	if err != nil {
+		return err
+	}
+
+	CelticFemaleNames = names
 
 	return nil
 }
@@ -69,6 +89,14 @@ func GenerateListSaxonMaleNames(count int) []string {
 }
 
 func GenerateListSaxonFemaleNames(count int) []string {
+	return generateListOfNames(count, SaxonFemaleNames)
+}
+
+func GenerateListCelticMaleNames(count int) []string {
+	return generateListOfNames(count, SaxonMaleNames)
+}
+
+func GenerateListCelticFemaleNames(count int) []string {
 	return generateListOfNames(count, SaxonFemaleNames)
 }
 

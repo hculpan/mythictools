@@ -8,6 +8,8 @@ import (
 
 func init() {
 	config.LoadEnvVariables()
+	services.InitNameGeneratorService()
+
 	// config.ConnectToDB()
 	// config.LoadCateogires()
 }
@@ -17,8 +19,6 @@ func main() {
 
 	r.Static("/assets", "./assets")
 	r.LoadHTMLGlob("templates/*.gohtml")
-
-	services.InitNameGeneratorService()
 
 	config.WebRoutes(r)
 

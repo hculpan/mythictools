@@ -8,6 +8,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="/names?type=saxon">Saxon names</a></li>
             <li><a class="dropdown-item" href="/names?type=celtic">Celtic names</a></li>
+            <li><a class="dropdown-item" href="/names?type=town">Town names</a></li>
         </ul>
     </div>
 </div>
@@ -20,7 +21,7 @@
     <div class="row">
         <div class="col-4">
             <ul class="list-group">
-                <li class="list-group-item"><h5>Males</h5></li>
+                <li class="list-group-item"><h5>{{ .firstheader }}</h5></li>
 
                 {{ range .malenames }}
 
@@ -32,7 +33,7 @@
         <div class="col-4"></div>
         <div class="col-4">
             <ul class="list-group">
-                <li class="list-group-item"><h5>Females</h5></li>
+                <li class="list-group-item"><h5>{{ .secondheader }}</h5></li>
 
                 {{ range .femalenames }}
 

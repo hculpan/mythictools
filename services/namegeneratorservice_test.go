@@ -1,6 +1,9 @@
 package services
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestInitGeneratorService(t *testing.T) {
 	SaxonMaleNamesFilename = "../data/saxon-male-names.txt"
@@ -76,4 +79,9 @@ func checkDuplicates(arr []string) bool {
 
 	// If no element appears more than once, there are no duplicates
 	return false
+}
+
+func TestGenerateTownName(t *testing.T) {
+	InitNameGeneratorService()
+	fmt.Println(GenerateTownName())
 }

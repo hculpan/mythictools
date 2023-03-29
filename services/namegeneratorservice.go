@@ -125,3 +125,29 @@ func readFileIntoArray(filename string) ([]string, error) {
 
 	return lines, nil
 }
+
+var twoSyllables = []string{"Ash", "Birch", "Chelm", "Dor", "Ead", "Fer", "Grim", "Hert", "Irn", "Ken", "Luf", "Mild", "Nun", "Osb", "Padd", "Quen", "Ric", "Sige", "Tun", "Ulf", "Vort", "Wic", "Xen", "Yff", "Zeb"}
+var threeSyllables = []string{"bur", "cun", "dun", "ecc", "farn", "gild", "helm", "inn", "keld", "lind", "morc", "nath", "old", "penn", "quar", "ridd", "stan", "thorp", "ulf", "vinn", "wick", "york", "zand"}
+
+func GenerateTownName() string {
+	numSyllables := rnd.Intn(2) + 2
+	var name string
+	for i := 0; i < numSyllables; i++ {
+		if i == 0 {
+			name += twoSyllables[rnd.Intn(len(twoSyllables))]
+		} else {
+			name += threeSyllables[rnd.Intn(len(threeSyllables))]
+		}
+	}
+	return name
+}
+
+func GenerateTownNames(count int) []string {
+	result := []string{}
+
+	for i := 0; i < count; i++ {
+		result = append(result, GenerateTownName())
+	}
+
+	return result
+}
